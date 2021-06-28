@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>素数計算ソフト</title>
+</head>
+<body>
+    <input id="in" />
+    <button id="button" onclick="aaa()">実行</button>
+    <div id="div" style="font-size:3em"></div>
+    <script>
+        var count;
+        var counter = 0;
+        var x = 1;
+        function aaa() {
+            var answer = keisann(document.getElementById("in").value);
+            document.getElementById("div").innerHTML = answer;
+        }
+        function keisann(num) {
+            x = 1;
+            counter = 0;
+            while (counter != num) {
+
+                if (sosuu(x)) {
+                    if (num - 1 == counter) {
+                        return x;
+                    }
+                    counter++;
+                }
+                x++;
+            }
+        }
+
+
+
+
+        function sosuu(num) {
+            count = true;
+            if (num <= 1 | num % 1 != 0) {
+                return false;
+            }
+            else if (num == 2) {
+                return true;
+            }
+            else {
+                for (var a = 2; a < num; a++) {
+                    if (count) {
+                        if (num % a != 0) {
+                            count = true;
+                        }
+                        else {
+                            count = false;
+                        }
+
+                    }
+                }
+                return count;
+            }
+        }
+    </script>
+</body>
+</html>
